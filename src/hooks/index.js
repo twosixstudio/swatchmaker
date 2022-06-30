@@ -1,0 +1,1 @@
+export { useSwatchLocation } from "./useSwatchLocation";

@@ -1,0 +1,1 @@
+export { SwatchTileWrapper } from "./SwatchTileWrapper";
