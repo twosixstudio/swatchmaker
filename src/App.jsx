@@ -24,7 +24,7 @@ function App() {
     });
 
   return (
-    <div className="p-5 max-w-5xl mx-auto mt-10">
+    <div className="p-4 max-w-5xl mx-auto mt-10">
       <div className="flex flex-col gap-20">
         <SwatchRow title="Primary" swatch={createSwatchArray(swatch)} />
         <SwatchRow
