@@ -1,6 +1,6 @@
 import "./index.css";
 import { useState } from "react";
-import { ControlPanel, SwatchRow } from "./ui";
+import { ControlPanel, Logo, SwatchRow } from "./ui";
 import { useSwatchLocation } from "./hooks/useSwatchLocation";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -49,6 +49,7 @@ export const colors = ${JSON.stringify(formatted, null, 2)}`,
   return (
     <div className="p-4 max-w-5xl mx-auto mt-10">
       <div className="flex flex-col gap-20">
+        <Logo width='150px' bgColor={swatchLocation.swatches[0]?.pallete[50]} color={swatchLocation.swatches[0]?.baseColor} />
         <button onClick={() => download()}>file</button>
         {swatchLocation.swatches?.map(
           ({ baseColor, steps, pallete, ...props }, i) => (

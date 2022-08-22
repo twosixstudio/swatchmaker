@@ -4,7 +4,7 @@ import { createSwatch } from "../utils/colorUtils";
 import { useQueryParams } from "./useQueryParams";
 
 const defaultSwatch = {
-  baseColor: "#e8e8e8",
+  baseColor: "#8a1ade",
   steps: 10,
   title: "Change me",
 };
