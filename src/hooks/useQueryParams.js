@@ -1,6 +1,6 @@
 import qs from "qs";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 export const useQueryParams = () => {
   const location = useLocation();
@@ -31,13 +31,11 @@ export const useQueryParams = () => {
   };
 
   const addItemToArray = (name, item) => {
-    console.log(params);
     const newObj = params[name] ? [...params[name], item] : [item];
     pushRouterParamsWithNewObject(name, newObj);
   };
 
   const pushRouterParamsWithNewObject = (name, obj) => {
-    console.log(name, obj)
     setSearchParams(qs.stringify({ ...params, [name]: obj }));
   };
 

@@ -33,7 +33,6 @@ export const createSwatch = ({
   return colors;
 };
 
-
 export const hslToHex = (h, s, l) => {
   l /= 100;
   const a = (s * Math.min(l, 1 - l)) / 100;
@@ -45,4 +44,40 @@ export const hslToHex = (h, s, l) => {
       .padStart(2, "0"); // convert to Hex and prefix "0" if needed
   };
   return `#${f(0)}${f(8)}${f(4)}`;
+};
+
+export const virtualDownloadClick = (file) => {
+  const link = document.createElement("a");
+  const url = URL.createObjectURL(file);
+
+  link.href = url;
+  link.download = file.name;
+  document.body.appendChild(link);
+  link.click();
+
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(url);
+};
+
+export const formatSwatchesForThemeObject = (swatches = []) => {
+  let formatted = {};
+
+  swatches.forEach((element) => {
+    const formattedTitle = element.title.toLowerCase().replace(/\s/g, "");
+    formatted[formattedTitle] = element.pallete;
+  });
+
+  return formatted;
+};
+
+export const createThemeJsStringFromSwatch = (swatch) => {
+  return `//${window.location.href}
+          
+  export const colors = ${JSON.stringify(swatch, null, 2)}`;
+};
+
+export const createTextFileFromString = (str, name) => {
+  return new File([str], name, {
+    type: "text/plain",
+  });
 };

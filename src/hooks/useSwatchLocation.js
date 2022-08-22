@@ -6,7 +6,7 @@ import { useQueryParams } from "./useQueryParams";
 const defaultSwatch = {
   baseColor: "#8a1ade",
   steps: 10,
-  title: "Change me",
+  title: "Color",
 };
 
 export const useSwatchLocation = () => {
@@ -38,7 +38,12 @@ export const useSwatchLocation = () => {
   );
 
   const addSwatch = () => {
-    const newSwatchParams = [...(swatchParams || []), defaultSwatch];
+    const t = createTitle(defaultSwatch.title, swatches);
+    console.log({ t });
+    const newSwatchParams = [
+      ...(swatchParams || []),
+      { ...defaultSwatch, title: createTitle(defaultSwatch.title, swatches) },
+    ];
     setSwatchParams(newSwatchParams);
     debouncedUpdate(newSwatchParams);
   };
@@ -56,6 +61,15 @@ export const useSwatchLocation = () => {
     });
     setSwatchParams(newSwatchParams);
     debouncedUpdate(newSwatchParams);
+  };
+
+  const createTitle = (title, swatches, index = 1) => {
+    const titles = swatches.map((s) => s.title);
+    const proposedTitle = `${title} ${index}`
+    if (titles.includes(proposedTitle)) {
+      return createTitle(title, swatches, index + 1);
+    }
+    return proposedTitle;
   };
 
   return {
