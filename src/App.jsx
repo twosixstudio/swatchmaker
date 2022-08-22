@@ -13,9 +13,43 @@ function App() {
       return { label: key, value: swatchObj[key] };
     });
 
+  function download() {
+    let formatted = {};
+
+    swatchLocation.swatches.forEach((element) => {
+      const formattedTitle = element.title.toLowerCase().replace(/\s/g, "");
+      formatted[formattedTitle] = element.pallete;
+    });
+
+    const file = new File(
+      [
+        `
+//${window.location.href}
+
+export const colors = ${JSON.stringify(formatted, null, 2)}`,
+      ],
+      "colors.js",
+      {
+        type: "text/plain",
+      }
+    );
+
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(file);
+
+    link.href = url;
+    link.download = file.name;
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  }
+
   return (
     <div className="p-4 max-w-5xl mx-auto mt-10">
       <div className="flex flex-col gap-20">
+        <button onClick={() => download()}>file</button>
         {swatchLocation.swatches?.map(
           ({ baseColor, steps, pallete, ...props }, i) => (
             <div key={i}>
