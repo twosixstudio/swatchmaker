@@ -3,6 +3,8 @@ import { useState } from "react";
 import { ControlPanel, SwatchRow, ButtonAdd } from "../../ui";
 import { SwatchMakerWrapper } from "./ui";
 import { motion } from "framer-motion";
+import { parseToHsl } from "polished";
+import { hslToHex } from "../../utils";
 
 export const SwatchMaker = ({ swatchLocation }) => {
   const [controlsIndex, setControlsIndex] = useState();
