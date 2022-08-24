@@ -1,7 +1,7 @@
 import { readableColor } from "polished";
-import { SwatchTileWrapper } from "./ui";
+import { SwatchTileHover, SwatchTileWrapper } from "./ui";
 
-export const SwatchTile = ({ label, value }) => {
+export const SwatchTile = ({ label, value, onClick }) => {
   let textColor = "black";
   try {
     textColor = readableColor(value);
@@ -12,8 +12,9 @@ export const SwatchTile = ({ label, value }) => {
         backgroundColor: value,
         color: textColor,
       }}
+      onClick={() => onClick(value)}
     >
-      {label}
+      <SwatchTileHover>{label}</SwatchTileHover>
     </SwatchTileWrapper>
   );
 };

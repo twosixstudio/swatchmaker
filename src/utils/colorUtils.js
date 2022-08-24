@@ -59,7 +59,7 @@ export const virtualDownloadClick = (file) => {
   window.URL.revokeObjectURL(url);
 };
 
-export const formatSwatchesForThemeObject = (swatches = []) => {
+export const formatSwatchesForThemeObject = (swatches) => {
   let formatted = {};
 
   swatches.forEach((element) => {
@@ -80,4 +80,23 @@ export const createTextFileFromString = (str, name) => {
   return new File([str], name, {
     type: "text/plain",
   });
+};
+
+export const formatSwatchesForCssVariables = (swatches) => {
+  let formatted = "";
+  swatches.forEach((element) => {
+    const palleteKeys = Object.keys(element.pallete);
+    const formattedTitle = element.title.toLowerCase().replace(/\s/g, "");
+    formatted += `\n`;
+    palleteKeys.forEach((e) => {
+      const key = `--${formattedTitle}-${e}`;
+      const value = element.pallete[e];
+      formatted += `${key}:${value};\n`;
+    });
+  });
+  return formatted;
+};
+
+export const createCssVariableStringFromSwatch = (swatch) => {
+  return `/* ${window.location.href} */\n:root {${swatch}}`;
 };

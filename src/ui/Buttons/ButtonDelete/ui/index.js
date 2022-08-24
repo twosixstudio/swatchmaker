@@ -1,0 +1,1 @@
+export { ButtonDeleteWrapper } from "./ButtonDeleteWrapper";

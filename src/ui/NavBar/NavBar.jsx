@@ -5,11 +5,19 @@ export const NavBar = ({
   logoColor,
   logoBgColor,
   handleButtonDownloadClick,
-  handleButtonCopyClick
+  handleButtonCopyCssClick,
 }) => (
   <NavBarWrapper>
     <NavBarLogo {...{ logoColor, logoBgColor }} />
-    <ButtonDownload onClick={handleButtonDownloadClick} />
-    <button onClick={handleButtonCopyClick}>Copy values</button>
+    <nav className="flex flex-col gap-3">
+      <ButtonDownload
+        onClick={handleButtonDownloadClick}
+        label="Download JS theme"
+      />
+      <ButtonDownload
+        onClick={handleButtonCopyCssClick}
+        label="Copy CSS variables"
+      />
+    </nav>
   </NavBarWrapper>
 );

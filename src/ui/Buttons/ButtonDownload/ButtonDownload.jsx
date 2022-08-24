@@ -1,8 +1,8 @@
-export const ButtonDownload = (props) => (
+export const ButtonDownload = ({ label, ...props }) => (
   <button
-    className="bg-gray-200 py-2 px-5 rounded hover:bg-gray-300 font-bold"
+    className="bg-slate-200 py-2 px-5 rounded hover:bg-slate-300 font-bold"
     {...props}
   >
-    Download color.js file
+    {label}
   </button>
 );
