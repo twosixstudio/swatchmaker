@@ -1,4 +1,4 @@
-export const Logo = ({ color = "#303030", bgColor = "#f2f2f2", ...props }) => (
+export const Logo = ({ color = "#303030", bgColor = "#e2e8f0", ...props }) => (
   <svg
     id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"
