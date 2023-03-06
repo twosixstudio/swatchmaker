@@ -7,6 +7,9 @@ const defaultSwatch = {
   baseColor: "#8a1ade",
   steps: 10,
   title: "Color",
+  sat: 0,
+  range: 90,
+  offset: 0,
 };
 
 export const useSwatchLocation = () => {
@@ -65,7 +68,7 @@ export const useSwatchLocation = () => {
 
   const createTitle = (title, swatches, index = 1) => {
     const titles = swatches.map((s) => s.title);
-    const proposedTitle = `${title} ${index}`
+    const proposedTitle = `${title} ${index}`;
     if (titles.includes(proposedTitle)) {
       return createTitle(title, swatches, index + 1);
     }

@@ -4,14 +4,14 @@ import { NavBarWrapper, NavBarLogo } from "./ui";
 export const NavBar = ({
   logoColor,
   logoBgColor,
-  handleButtonDownloadClick,
+  handleButtonCopyJsThemeClick,
   handleButtonCopyCssClick,
 }) => (
   <NavBarWrapper>
     <NavBarLogo {...{ logoColor, logoBgColor }} />
     <nav className="flex flex-col gap-3">
       <ButtonDownload
-        onClick={handleButtonDownloadClick}
+        onClick={handleButtonCopyJsThemeClick}
         label="Download JS theme"
       />
       <ButtonDownload

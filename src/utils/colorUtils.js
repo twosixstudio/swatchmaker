@@ -5,7 +5,8 @@ export const createSwatch = ({
   steps = 20,
   range = 90,
   offset = 0,
-  desaturation = 0,
+  sat = 0,
+  ...props
 }) => {
   const intSteps = parseInt(steps);
   const min = 50;
@@ -21,7 +22,7 @@ export const createSwatch = ({
       label = (max / intSteps) * i;
       if (label === 0) label = min;
       const hsl = parseToHsl(baseColor);
-      const saturation = parseInt(hsl.saturation * 100 - desaturation);
+      const saturation = parseInt(hsl.saturation * 100 - sat);
       const hue = parseInt(hsl.hue);
       const pct = ((100 - (100 - range)) / 100) * (label / 10);
       const lightness = parseInt(100 - pct - offset);

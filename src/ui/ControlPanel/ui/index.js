@@ -1,3 +1,3 @@
 export { ControlPanelWrapper } from "./ControlPanelWrapper";
-export { ControlPanelWrapperInput } from "./ControlPanelWrapperInput";
+export { ControlPanelInput } from "./ControlPanelInput";
 export { ControlPanelButtton } from "./ControlPanelButtton";
