@@ -12,7 +12,7 @@ export const NavBar = ({
     <nav className="flex flex-col gap-3">
       <ButtonDownload
         onClick={handleButtonCopyJsThemeClick}
-        label="Download JS theme"
+        label="Copy JS theme"
       />
       <ButtonDownload
         onClick={handleButtonCopyCssClick}
