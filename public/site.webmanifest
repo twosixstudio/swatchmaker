@@ -1,26 +1,33 @@
 {
-    "name": "Swatchy",
-    "short_name": "Swatchy",
-    "icons": [
-      {
-        "src": "/android-chrome-192x192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "/android-chrome-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png",
-        "purpose": "any"
-      }
-    ],
-    "theme_color": "#e2e2e2",
-    "background_color": "#4e4e4e",
-    "display": "standalone",
-    "start_url": "https://swatchy.twosix.studio",
-    "dir": "ltr",
-    "lang": "en",
-    "scope": "https://swatchy.twosix.studio",
-    "orientation": "portrait"
-  }
-  
+  "name": "Swatchy",
+  "short_name": "Swatchy",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#e2e2e2",
+  "background_color": "#4e4e4e",
+  "display": "standalone",
+  "start_url": "https://swatchy.twosix.studio",
+  "dir": "ltr",
+  "lang": "en",
+  "scope": "https://swatchy.twosix.studio",
+  "orientation": "portrait",
+  "screenshots": [
+    {
+      "src": "/screenshot.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg",
+      "platform": "portrait"
+    }
+  ]
+}
