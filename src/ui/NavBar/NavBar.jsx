@@ -21,7 +21,7 @@ export const NavBar = ({
       />
       <ButtonDownload
         onClick={handleFigmaVariablesButtonClick}
-        label="Download Figma Variables"
+        label="Download Figma variables"
       />
     </nav>
   </NavBarWrapper>
