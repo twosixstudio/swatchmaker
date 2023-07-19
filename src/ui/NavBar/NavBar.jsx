@@ -6,6 +6,7 @@ export const NavBar = ({
   logoBgColor,
   handleButtonCopyJsThemeClick,
   handleButtonCopyCssClick,
+  handleFigmaVariablesButtonClick,
 }) => (
   <NavBarWrapper>
     <NavBarLogo {...{ logoColor, logoBgColor }} />
@@ -17,6 +18,10 @@ export const NavBar = ({
       <ButtonDownload
         onClick={handleButtonCopyCssClick}
         label="Copy CSS variables"
+      />
+      <ButtonDownload
+        onClick={handleFigmaVariablesButtonClick}
+        label="Download Figma Variables"
       />
     </nav>
   </NavBarWrapper>

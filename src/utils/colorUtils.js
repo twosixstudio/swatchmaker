@@ -35,6 +35,7 @@ export const createSwatch = ({
 };
 
 export const hslToHex = (h, s, l) => {
+  console.log(h,s,l,'hsl')
   l /= 100;
   const a = (s * Math.min(l, 1 - l)) / 100;
   const f = (n) => {
@@ -69,6 +70,28 @@ export const formatSwatchesForThemeObject = (swatches) => {
   });
 
   return formatted;
+};
+
+export const createFigmaVariablesFromSwatch = (swatches) => {
+  let obj = { fileName: "Colors", colors: {} };
+  console.log(swatches);
+  swatches.forEach((element) => {
+    const palleteKeys = Object.keys(element.pallete);
+
+    const formattedTitle = element.title.toLowerCase().replace(/\s/g, "");
+    // formatted += `\n`;
+    palleteKeys.forEach((e) => {
+      const key = `${formattedTitle} ${e}`;
+      const value = element.pallete[e];
+      const hsl = parseToHsl(value);
+      console.log(hsl);
+      obj.colors[key] = {
+        $type: "color",
+        $value: hslToHex(hsl.hue, hsl.saturation * 100, hsl.lightness * 100),
+      };
+    });
+  });
+  return JSON.stringify(obj);
 };
 
 export const createThemeJsStringFromSwatch = (swatch) => {
