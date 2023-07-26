@@ -1,14 +1,17 @@
 import "./index.css";
-import { NavBar, SwatchMaker } from "./components";
+import { Footer, NavBar, SwatchMaker } from "./components";
 import { useSwatchLocation } from "./hooks";
 
 function App() {
   const swatchLocation = useSwatchLocation();
   return (
-    <>
-      <NavBar {...{ swatchLocation }} />
-      <SwatchMaker {...{ swatchLocation }} />
-    </>
+    <div className="min-h-[100dvh] flex flex-col w-full">
+      <div className="w-full grow">
+        <NavBar {...{ swatchLocation }} />
+        <SwatchMaker {...{ swatchLocation }} />
+      </div>
+      <Footer />
+    </div>
   );
 }
 
